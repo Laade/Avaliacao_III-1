@@ -3,12 +3,14 @@ package inf008.model;
 public class MapaRGB extends Mapa{
     private CorRGB[][] pixels;
 
-	public MapaRGB(int altura, int largura, CorRGB[][] mapa) {
+	public MapaRGB(String id, String descricao, int altura, int largura, CorRGB[][] mapa) {
+		super(id, descricao);
 		this.pixels = mapa;
 	}
 	
 	// Caso nenhuma imagem seja passada, ele criará uma imagem em branco
-	public MapaRGB(int altura, int largura) {
+	public MapaRGB(String id, String descricao, int altura, int largura) {
+		super(id, descricao);
 		this.pixels = new CorRGB[altura][largura];
 		for(int iCont = 0; iCont < this.pixels.length; iCont++)
 			for(int jCont = 0; jCont < this.pixels[iCont].length; jCont++)
