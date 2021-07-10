@@ -74,4 +74,9 @@ public class CorCMYK extends Cor{
           }
           return cor; 
     };
+    @Override
+	public boolean isEqual(Cor cor) {
+		// TODO Auto-generated method stub
+		return false;
+	};
 }

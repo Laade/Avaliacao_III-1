@@ -75,7 +75,9 @@ public class CorRGB extends Cor{
         return value <= 0 ? 0 : value;
     }
 
-    public boolean isEqual(CorRGB rgb) {
+     @Override
+    public boolean isEqual(Cor cor) {
+    	CorRGB rgb = (CorRGB) cor;
         return (this.getRed() == rgb.getRed()) && (this.getGreen() == rgb.getGreen()) && (this.getBlue() == rgb.getBlue());
     }
 

@@ -24,8 +24,8 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- funcionalidade para avaliar a prevalencia de elementos em um mapa (imagem é um conjunto bidimensional de pixels). 🔴
-- funcionalidade que retorna a quantidade percentual de pixels equivalente a uma cor informada. 🔴
+- funcionalidade para avaliar a prevalencia de elementos em um mapa (imagem é um conjunto bidimensional de pixels). 🟢
+- funcionalidade que retorna a quantidade percentual de pixels equivalente a uma cor informada. 🟢
 - funcionalidade que lê o arquivo do usuário e é armazenada na model mapa. 🟠
   - criacao da Controller MapaDAOIF 🟠
   - criacao da Controller MapaDAOFile 🟠
