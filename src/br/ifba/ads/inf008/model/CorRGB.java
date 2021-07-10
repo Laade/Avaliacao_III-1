@@ -23,7 +23,7 @@ public class CorRGB extends Cor{
     }
 
     // Contrutor Cria Cor RGB
-    public CorRGB(int red, int green, int blue){
+    public CorRGB(String id, String descricao, String simbolo, int red, int green, int blue){
         this.setRed(red);
         this.setGreen(green);
         this.setBlue(blue);
