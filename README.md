@@ -1,6 +1,6 @@
 
 <h3 align="center">
-    <img alt="Logo" title="#logo" width="300px" heigth="300px" src="/assets/imgs/logo_java.png">
+    <img alt="Logo" title="#logo" width="300px" heigth="200px" src="/assets/imgs/logo_java.png">
     </br>
     </br>
     </br>
@@ -31,16 +31,14 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 o sistema deve conter:
 
-- carregamento de arquivo
-- banco de dados
-- view
-- codigo
+- carregamento de arquivo 🔴
+- banco de dados 🔴
+- view 🔴
+- codigo 🟠
 
 ### Métodos Opcionais/sugestões
-<li> Revisão de Models construídas na Expecificação I 🟢
-<li> Uso de Testes Unitários para a aplicação. 🟠
-<li> Verifica a similaridade de duas cores quaisquer, através da distância (módulo da diferença) entre suas luminosidades (tom de cinza). 🔴
 
+- Uso de Testes Unitários para a aplicação. 🟠
 </br>
 
 ##### Legenda
