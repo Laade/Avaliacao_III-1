@@ -1,4 +1,3 @@
-
 <h3 align="center">
     <img alt="Logo" title="#logo" width="200px" heigth="100px" src="/assets/imgs/logo_java.png">
     </br>
@@ -65,9 +64,8 @@ Esse projeto foi desenvolvido utilizando a seguinte tecnologia, e pacotes:
 
 - Faça um fork do projeto
 - Abra o terminal do Visual Studio Code
-- Digite (troque ReinanS pelo nome do seu usuário): git clone https://github.com/ReinanS/INF008-Avaliacao-I
-- Nome da pasta: INF008-Avaliacao-I
-
+- Digite (troque lorenascarvalho pelo nome do seu usuário): git clone https://github.com/lorenascarvalho/Avaliacao_III
+- Nome da pasta: Avaliacao_III
 
 <a id="how-to-contribute"></a>
 
@@ -77,7 +75,3 @@ Esse projeto foi desenvolvido utilizando a seguinte tecnologia, e pacotes:
 - Crie sua branche com sua contribuição: `git checkout -b my-feature`
 - Commit suas mudanças: `git commit -m 'feat: My new feature' `
 - Push sua branch: `git push origin my-feature`
-
-<h4 align="center">
-    Made by <a href="https://github.com/ReinanS" target="_blank">Reinan Santos</a>
-</h4>
