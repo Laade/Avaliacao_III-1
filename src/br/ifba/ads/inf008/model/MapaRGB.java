@@ -23,7 +23,7 @@ public class MapaRGB extends Mapa{
 	}
 	
 	public void setPixel(int altura, int largura, int red, int green, int blue) {
-		this.setPixel(altura, largura, new CorRGB(red, green, blue));
+		this.setPixel(altura, largura, new CorRGB(null, null, null, red, green, blue));
 	}
 
 	@Override 
