@@ -2,11 +2,11 @@ package inf008.model;
 
 public class CorRGB extends Cor{
 
-   	public static final CorRGB PRETA = new CorRGB(id, descricao, simbolo, 0, 0, 0);
-	public static final CorRGB BRANCA = new CorRGB(id, descricao, simbolo, 255, 255, 255);
-	public static final CorRGB RED = new CorRGB(id, descricao, simbolo,255, 0, 0);
-	public static final CorRGB GREEN = new CorRGB(id, descricao, simbolo,0, 255, 0);
-	public static final CorRGB BLUE = new CorRGB(id, descricao, simbolo,0, 0, 255);
+   	public static final CorRGB PRETA = new CorRGB(null, "PRETA", null, 0, 0, 0);
+	public static final CorRGB BRANCA = new CorRGB(null, "BRANCA", null, 255, 255, 255);
+	public static final CorRGB RED = new CorRGB(null, "RED", null,255, 0, 0);
+	public static final CorRGB GREEN = new CorRGB(null, "GREEN", null,0, 255, 0);
+	public static final CorRGB BLUE = new CorRGB(null, "BLUE", null,0, 0, 255);
 
 	private int red;
 	private int green;
@@ -14,12 +14,12 @@ public class CorRGB extends Cor{
 
     // Quando a cor RGB é chamada sem parâmetros ela retorna uma cor preta
     public CorRGB(){
-        this(id, descricao, simbolo, 0,0,0);
+        this(null, "PRETA", null, 0,0,0);
     };
 
      // Construtor de Cópia
-     public CorRGB(CorRGB cor) {
-        this(id, descricao, simbolo, cor.getRed(), cor.getGreen(), cor.getBlue());
+     public CorRGB(String id, String descricao, String simbolo,CorRGB cor) {
+        this(null, descricao, simbolo, cor.getRed(), cor.getGreen(), cor.getBlue());
     }
 
     // Contrutor Cria Cor RGB

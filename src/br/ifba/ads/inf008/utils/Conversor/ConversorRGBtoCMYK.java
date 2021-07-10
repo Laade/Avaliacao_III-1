@@ -10,7 +10,7 @@ public class ConversorRGBtoCMYK implements ConversorCor{
 
     @Override
     public Mapa getNovoMapa(int altura, int largura) {
-        return new MapaCMYK(altura, largura);
+        return new MapaCMYK(null, null, altura, largura);
     }
 
     @Override

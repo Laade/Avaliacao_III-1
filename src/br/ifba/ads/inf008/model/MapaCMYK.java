@@ -4,11 +4,13 @@ public class MapaCMYK extends Mapa {
 
     private CorCMYK[][] pixels;
 
-    public MapaCMYK(CorCMYK[][] mapa){
-        this.pixels = mapa;
-    }
+    public MapaCMYK(String id, String descricao, CorCMYK[][] pixels) {
+		super(id, descricao);
+		this.pixels = pixels;
+	}
 
-    public MapaCMYK(int altura, int largura){
+    public MapaCMYK(String id, String descricao, int altura, int largura){
+        super(id, descricao);
         this.pixels = new CorCMYK[altura][largura];
     }
 

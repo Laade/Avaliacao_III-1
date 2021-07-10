@@ -2,9 +2,9 @@ package inf008.model;
 
 public abstract class Cor {
     
-    	protected static String id;
-	protected static String descricao;
-	protected static String simbolo;
+    protected String id;
+	protected String descricao;
+	protected String simbolo;
          
     public Cor(String id, String descricao, String simbolo) {
 		this.setId(id);
