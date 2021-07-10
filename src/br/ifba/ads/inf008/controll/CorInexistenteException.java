@@ -1,5 +1,4 @@
-package controll;
-
+package inf008.controll;
 
 public class CorInexistenteException extends Exception {
 

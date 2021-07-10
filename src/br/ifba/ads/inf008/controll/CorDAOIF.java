@@ -1,7 +1,6 @@
-package controll;
+package inf008.controll;
 
-import java.util.List;
-import model.Cor;
+import inf008.model.Cor;
 
 public interface CorDAOIF {
 	//public void salvar(Cor cor) throws Exception;
