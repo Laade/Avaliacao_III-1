@@ -27,11 +27,17 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - funcionalidade para avaliar a prevalencia de elementos em um mapa (imagem é um conjunto bidimensional de pixels). 🔴
 - funcionalidade que retorna a quantidade percentual de pixels equivalente a uma cor informada. 🔴
 - funcionalidade que lê o arquivo do usuário e é armazenada na model mapa. 🟠
-  - criacao da Controller MapaDAOIF
-  - criacao da Controller MapaDAOFile
+  - criacao da Controller MapaDAOIF 🟠
+  - criacao da Controller MapaDAOFile 🟠
 
 - Ajustes nas models:
-  - atributo id e descricao ao Mapa.
+  - Adicionar atributo id, descricao, símbolo e tipo (RGB ou CMYK) à model Cor 🔴
+
+- conexão com o banco
+
+- Listagem do que ainda precisa ser feito
+  - verificação de tipo da imagem
+
 
 o sistema deve conter:
 
