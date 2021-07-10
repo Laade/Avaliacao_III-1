@@ -1,9 +1,17 @@
 package controll;
 
+
 public class CorInexistenteException extends Exception {
 
-	public CorInexistenteException(String nome) {
-		// TODO Auto-generated constructor stub
+	private String NomeDaCor;
+	
+	public CorInexistenteException(String NomeDaCor) {
+		super();
+		this.NomeDaCor = NomeDaCor;
+	}
+	
+	public String getNomeDaCor() {
+		return this.NomeDaCor;
 	}
 
 }
