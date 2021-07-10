@@ -57,15 +57,15 @@ public class CorDAOFile implements CorDAOIF {
 	  }
 
 	  
-	@Override
-	  public void atualizar(Cor c) throws Exception {
-		  int index = this.cores.indexOf(c);
-		  if(index == -1)
-			   throw new CorInexistenteException(c.toString());
-		  this.cores.remove(index);
-		  this.cores.add(c);
-		  this.writeFileCor();
-	  }
+	//@Override
+	 // public void atualizar(Cor c) throws Exception {
+	//	  int index = this.cores.indexOf(c);
+	//	  if(index == -1)
+	//		   throw new CorInexistenteException(c.toString());
+	//	  this.cores.remove(index);
+	//	  this.cores.add(c);
+	//	  this.writeFileCor();
+	  //}
 	  
 	
 	public int pesquisarCor (Cor cor) throws ClassNotFoundException, IOException {
