@@ -18,8 +18,9 @@ public class CorCMYK extends Cor{
         this(0, 0, 0, 0);
     }
 
-    public CorCMYK(int cyan, int magente, int yellow, int keyBlack) {
-        this.setCyan(cyan);
+    public CorCMYK(String id, String descricao, String simbolo, int cyan, int magente, int yellow, int keyBlack) {
+        super(id, descricao, simbolo);
+    	this.setCyan(cyan);
         this.setMagente(magente);
         this.setYellow(yellow);
         this.setkeyBlack(keyBlack);
