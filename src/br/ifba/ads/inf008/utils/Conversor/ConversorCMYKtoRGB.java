@@ -10,14 +10,14 @@ public class ConversorCMYKtoRGB implements ConversorCor{
 
     @Override
     public Mapa getNovoMapa(int altura, int largura) {
-        return new MapaRGB(altura, largura);
+        return new MapaRGB(null, null, altura, largura);
     }
 
     @Override
     public Cor converter(Cor cor) {
         CorCMYK corCMYK = (CorCMYK) cor;
 
-        return new CorRGB(convertFragment(corCMYK.getCyan(), corCMYK), 
+        return new CorRGB(null, null, null, convertFragment(corCMYK.getCyan(), corCMYK), 
                           convertFragment(corCMYK.getMagente(), corCMYK), 
                           convertFragment(corCMYK.getYellow(), corCMYK));
     }
