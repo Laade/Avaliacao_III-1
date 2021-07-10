@@ -7,8 +7,8 @@ package inf008.model;
 
 public abstract class Mapa {
 
-    private String id;
-    private String descricao;
+    protected String id;
+    protected String descricao;
     
     // Toda classe que herdar de mapa deve implementar esses métodos
     public abstract void setPixel(int altura, int largura, Cor pixel);
