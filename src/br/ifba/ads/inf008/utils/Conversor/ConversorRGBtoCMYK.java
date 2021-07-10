@@ -23,7 +23,7 @@ public class ConversorRGBtoCMYK implements ConversorCor{
 
         int keyBlack = 1 - customMax(_red, _green, _blue);
 
-        return new CorCMYK((1 - _red - keyBlack) / (1 - keyBlack), 
+        return new CorCMYK(null, null, null, (1 - _red - keyBlack) / (1 - keyBlack), 
                            (1 - _green - keyBlack) / (1 -keyBlack), 
                            (1 - _blue - keyBlack) / (1 -keyBlack), keyBlack);
     }
