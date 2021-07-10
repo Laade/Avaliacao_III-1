@@ -1,6 +1,6 @@
 
 <h3 align="center">
-    <img alt="Logo" title="#logo" width="300px" heigth="200px" src="/assets/imgs/logo_java.png">
+    <img alt="Logo" title="#logo" width="200px" heigth="100px" src="/assets/imgs/logo_java.png">
     </br>
     </br>
     </br>
@@ -28,6 +28,11 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - funcionalidade para avaliar a prevalencia de elementos em um mapa (imagem é um conjunto bidimensional de pixels). 🔴
 - funcionalidade que retorna a quantidade percentual de pixels equivalente a uma cor informada. 🔴
 - funcionalidade que lê o arquivo do usuário e é armazenada na model mapa. 🟠
+  - criacao da Controller MapaDAOIF
+  - criacao da Controller MapaDAOFile
+
+- Ajustes nas models:
+  - atributo id e descricao ao Mapa.
 
 o sistema deve conter:
 
