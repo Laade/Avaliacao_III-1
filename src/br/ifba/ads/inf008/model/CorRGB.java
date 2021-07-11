@@ -1,4 +1,4 @@
-package model;
+package inf008.model;
 
 public class CorRGB extends Cor{
 
@@ -16,12 +16,12 @@ public class CorRGB extends Cor{
     public CorRGB(int red, int green, int blue) {
     	super (red, green, blue);
     }
-    // Quando a cor RGB é chamada sem parâmetros ela retorna uma cor preta
+    // Quando a cor RGB ï¿½ chamada sem parï¿½metros ela retorna uma cor preta
     public CorRGB(){
     	 this(null, "PRETA", null, 0,0,0);
     };
 
-     // Construtor de Cópia
+     // Construtor de Cï¿½pia
     public CorRGB(String id, String descricao, String simbolo,CorRGB cor) {
         this(null, descricao, simbolo, cor.getRed(), cor.getGreen(), cor.getBlue());
     }

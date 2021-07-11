@@ -1,10 +1,10 @@
-package model;
+package inf008.model;
 
 public abstract class Cor {
     
-	 protected String id;
-		protected String descricao;
-		protected String simbolo;
+	protected String id;
+	protected String descricao;
+	protected String simbolo;
          
     public Cor(String id, String descricao, String simbolo) {
 		this.setId(id);
@@ -35,6 +35,8 @@ public abstract class Cor {
     public String getSimbolo() {
 		return this.simbolo;
 	}
+
+	public abstract String getCodTipo();
     
     public abstract int getLuminosidade();
     protected abstract int validaCor(int valor);
