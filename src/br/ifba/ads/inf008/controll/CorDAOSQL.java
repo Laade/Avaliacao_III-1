@@ -104,7 +104,7 @@ public class CorDAOSQL implements CorDAOIF {
 	@Override
 	public Collection<Cor> findBySimbolo(String simbolo) throws Exception {
 		Set<Cor> cores = new HashSet<Cor>();
-		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_ALL);
+		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_BY_SIMBOLO);
 		pStmt.setString(1, simbolo);
 		ResultSet rSet = pStmt.executeQuery();
 
