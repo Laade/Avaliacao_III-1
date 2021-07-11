@@ -1,30 +1,34 @@
-package inf008.model;
+package model;
 
 public class CorRGB extends Cor{
 
-   	public static final CorRGB PRETA = new CorRGB(null, "PRETA", null, 0, 0, 0);
+	public static final CorRGB PRETA = new CorRGB(null, "PRETA", null, 0, 0, 0);
 	public static final CorRGB BRANCA = new CorRGB(null, "BRANCA", null, 255, 255, 255);
 	public static final CorRGB RED = new CorRGB(null, "RED", null,255, 0, 0);
 	public static final CorRGB GREEN = new CorRGB(null, "GREEN", null,0, 255, 0);
 	public static final CorRGB BLUE = new CorRGB(null, "BLUE", null,0, 0, 255);
 
-	private int red;
-	private int green;
-	private int blue;
+    private int red;
+    private int green;
+    private int blue;
 
-    // Quando a cor RGB √© chamada sem par√¢metros ela retorna uma cor preta
+    
+    public CorRGB(int red, int green, int blue) {
+    	super (red, green, blue);
+    }
+    // Quando a cor RGB È chamada sem par‚metros ela retorna uma cor preta
     public CorRGB(){
-        this(null, "PRETA", null, 0,0,0);
+    	 this(null, "PRETA", null, 0,0,0);
     };
 
-     // Construtor de C√≥pia
-     public CorRGB(String id, String descricao, String simbolo,CorRGB cor) {
+     // Construtor de CÛpia
+    public CorRGB(String id, String descricao, String simbolo,CorRGB cor) {
         this(null, descricao, simbolo, cor.getRed(), cor.getGreen(), cor.getBlue());
     }
 
     // Contrutor Cria Cor RGB
     public CorRGB(String id, String descricao, String simbolo, int red, int green, int blue){
-	super(id, descricao, simbolo);
+    	super(id, descricao, simbolo);
         this.setRed(red);
         this.setGreen(green);
         this.setBlue(blue);
@@ -95,9 +99,15 @@ public class CorRGB extends Cor{
 						  this.getLuminosidade(), 
 						  this.getLuminosidade());
 	}
-
+    	
+    public int formatoCor(Cor cor) {
+    	
+    	return 0;
+    }
     
-
+    public String getCodTipo(){
+        return "R";
+    }  
 
     // public void clarear(double percent) {
 	// 	percent = 1 + percent;

@@ -1,17 +1,23 @@
-package inf008.model;
+package model;
 
 public abstract class Cor {
     
-    protected String id;
-	protected String descricao;
-	protected String simbolo;
+	 protected String id;
+		protected String descricao;
+		protected String simbolo;
          
     public Cor(String id, String descricao, String simbolo) {
 		this.setId(id);
 		this.setDescricao(descricao);
 		this.setSimbolo(simbolo);
 	}
-    private void setId(String id) {
+    public Cor(int cyan, int magente, int yellow, int keyBlack) {
+	}
+    
+	public Cor(int red, int green, int blue) {
+		// TODO Auto-generated constructor stub
+	}
+	private void setId(String id) {
 		this.id = id;
 	}
 	private void setDescricao(String descricao) {
@@ -20,13 +26,13 @@ public abstract class Cor {
 	private void setSimbolo(String simbolo) {
 		this.simbolo = simbolo;
 	}
-    private String getId() {
+    public String getId() {
 		return this.id;
 	}
-	private String getDescricao() {
+    public String getDescricao() {
 		return this.descricao;
 	}
-	private String getSimbolo() {
+    public String getSimbolo() {
 		return this.simbolo;
 	}
     

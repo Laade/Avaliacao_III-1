@@ -1,12 +1,12 @@
-package inf008.model;
+package model;
 
 public class CorCMYK extends Cor{
 
-    public static final CorCMYK CIANO = new CorCMYK(null, "CIANO", null, 100,0,0,0);
-    public static final CorCMYK MAGENTO = new CorCMYK(null, "MAGENTO", null, 0,100,0,0);
-    public static final CorCMYK AMARELO = new CorCMYK(null, "AMARELO", null, 0,0,100,0);
-    public static final CorCMYK PRETA = new CorCMYK(null, "PRETA", null, 0,0,0,100);
-    public static final CorCMYK BRANCA = new CorCMYK(null, "BRANCA", "null", 0,0,0,0);
+	 public static final CorCMYK CIANO = new CorCMYK(null, "CIANO", null, 100,0,0,0);
+	    public static final CorCMYK MAGENTO = new CorCMYK(null, "MAGENTO", null, 0,100,0,0);
+	    public static final CorCMYK AMARELO = new CorCMYK(null, "AMARELO", null, 0,0,100,0);
+	    public static final CorCMYK PRETA = new CorCMYK(null, "PRETA", null, 0,0,0,100);
+	    public static final CorCMYK BRANCA = new CorCMYK(null, "BRANCA", "null", 0,0,0,0);
 
     private int cyan;
     private int magente;
@@ -14,8 +14,12 @@ public class CorCMYK extends Cor{
     private int keyBlack;
 
 
+    public CorCMYK(int cyan, int magente, int yellow, int keyBlack) {
+    	super(cyan, magente, yellow, keyBlack);
+    }
+    
     public CorCMYK() {
-        this(null, "PRETA", null, 0, 0, 0, 0);
+    	this(null, "PRETA", null, 0, 0, 0, 0);
     }
 
     public CorCMYK(String id, String descricao, String simbolo, int cyan, int magente, int yellow, int keyBlack) {
@@ -80,4 +84,8 @@ public class CorCMYK extends Cor{
 		// TODO Auto-generated method stub
 		return false;
 	};
+	
+	public String getCodTipo(){
+        return "C";
+    }  
 }
