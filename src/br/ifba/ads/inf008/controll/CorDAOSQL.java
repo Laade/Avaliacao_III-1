@@ -20,30 +20,15 @@ public class CorDAOSQL implements CorDAOIF {
 	private static final String URI = "jdbc:hsqldb:hsql://localhost/";
 	private static final String USER = "SA";
 	private static final String PWD = "";
-
-	// private final String CREATE = "CREATE TABLE COR " 
-	// 		  + "(id VARCHAR(25) NOT NULL," 
-	// 		  + " descricao VARCHAR(25) NOT NULL, " 
-	// 		  + " simbolo VARCHAR(35) NOT NUL, "
-	// 		  + " red INT, "
-	// 		  + " green INT, "
-	// 		  + " blue INT, "
-	// 		  + " cyan INT, "
-	// 		  + " magenta INT, "
-	// 		  + " yellow INT, "
-	// 		  + " keyblack INT, "
-	// 		  + " PRIMARY KEY (id))";	
 	
 	private static final String COR_INSERT = "INSERT INTO COR(ID, DESCRICAO, SIMBOLO, RED,\r\n" + 
 												" GREEN, BLUE, CYAN, MAGENTE, YELLOW,\r\n" + 
 												" KEY, TIPO_COR)\r\n" + 
 												" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-	// PRECISA REFAZER
-	// private static final String COR_UPDATE = "UPDATE COR SET (ID, DESCRICAO, SIMBOLO, RED,\r\n" + 
-	// 											" GREEN, BLUE, CYAN, MAGENTE, YELLOW,\r\n" + 
-	// 											" KEY, TIPO_COR)\r\n" + 
-	// 											" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String COR_UPDATE = "UPDATE COR SET ID = ?, DESCRICAO = ?, SIMBOLO = ?, RED = ?,\r\n" + 
+												" GREEN = ?, BLUE = ?, CYAN = ?, MAGENTE = ?, YELLOW = ?,\r\n" + 
+												" KEY = ?, TIPO_COR = ?";
 	
 	private static final String COR_SELECT_BY_DESCRICAO = "SELECT ID, DESCRICAO, SIMBOLO, RED,\r\n" + 
 															" GREEN, BLUE, CYAN, MAGENTE, YELLOW,\r\n" + 
@@ -67,7 +52,6 @@ public class CorDAOSQL implements CorDAOIF {
 	// 	DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
 	// }
 	
-	
 	private Connection getConn() throws SQLException {
 		return  DriverManager.getConnection(CorDAOSQL.URI, CorDAOSQL.USER, CorDAOSQL.PWD); 
 	}
@@ -75,20 +59,17 @@ public class CorDAOSQL implements CorDAOIF {
 	@Override
 	public void salvar(Cor c) throws Exception {
 		PreparedStatement pStmt = this.getConn().prepareStatement(COR_INSERT);
-		pStmt.setString(1, c.getId());
-		pStmt.setString(2, c.getDescricao());
-		pStmt.setString(3, c.getSimbolo());
-		this.setCoresTipo(pStmt, c);
-		pStmt.executeUpdate();
+		this.preencheTodosOsCampos(pStmt, c);
 	}
 
 	@Override
 	public void atualizar(Cor c) throws Exception {
-		
+		PreparedStatement pStmt = this.getConn().prepareStatement(COR_UPDATE);
+		this.preencheTodosOsCampos(pStmt, c);
 	}
 	
 	@Override
-	public Cor findByNome(String descricao) throws Exception {
+	public Cor findByDescricao(String descricao) throws Exception {
 		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_BY_DESCRICAO);
 		pStmt.setString(1, descricao);
 		ResultSet rSet = pStmt.executeQuery();
@@ -97,7 +78,6 @@ public class CorDAOSQL implements CorDAOIF {
 			throw new CorInexistenteException(descricao);
 		
 		return setCor(rSet);
-
 	}
 
 	// Existirão várias cores diferentes que irão possuir o mesmo símbolo
@@ -124,6 +104,15 @@ public class CorDAOSQL implements CorDAOIF {
 			cores.add(setCor(rSet));
 		}
 		return cores;
+	}
+
+	private void preencheTodosOsCampos(PreparedStatement pStmt, Cor c) throws Exception {
+		pStmt.setString(1, c.getId());
+		pStmt.setString(2, c.getDescricao());
+		pStmt.setString(3, c.getSimbolo());
+		this.setCoresTipo(pStmt, c);
+		pStmt.executeUpdate();
+		pStmt.close();
 	}
 
 	private void setCoresTipo(PreparedStatement pStmt, Cor c) throws Exception {
