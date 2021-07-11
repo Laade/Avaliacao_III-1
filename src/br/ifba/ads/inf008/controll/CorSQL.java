@@ -1,8 +1,5 @@
 package inf008.controll;
 
-import inf008.model.Cor;
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,6 +13,7 @@ import java.util.Set;
 import model.Cor;
 import model.CorCMYK;
 import model.CorRGB;
+import model.TipoCor;
 
 public class CorSQL implements CorDAOIF {
 	
@@ -46,7 +44,6 @@ public class CorSQL implements CorDAOIF {
 	
 	private static final String CONSULTAR_DESCRICAO = "SELECT id, descricao, simbolo, red, green, blue, cyan, magenta, yellow, keyblack FROM COR WHERE descricao = ?";
 	private static final String CONSULTAR_SIMBOLO = "SELECT id, descricao, simbolo, red, green, blue, cyan, magenta, yellow, keyblack FROM COR WHERE simbolo = ?";
-	private int tipo;
 	
 	public CorSQL() {
 		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
@@ -88,6 +85,12 @@ public class CorSQL implements CorDAOIF {
 		
 		pStmt.executeUpdate();
 	}
-
 	
-}
+	private int getTipoCor(Cor c) {
+		if(c instanceof CorRGB)
+			return TipoCor.CorRGB.value();
+		else if (c instanceof CorCMYK)
+			return TipoCor.CorCMYK.value();
+		else
+			return -1;
+	}
