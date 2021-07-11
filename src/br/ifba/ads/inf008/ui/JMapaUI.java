@@ -1,4 +1,4 @@
-package ui;
+package inf008.ui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.TipoCor;
-import model.Cor;
-import controll.CorDAOFile;
+import inf008.model.TipoCor;
+import inf008.model.Cor;
+import inf008.controll.CorDAOFile;
 
 public class JMapaUI extends JFrame implements ActionListener {
 
@@ -45,7 +45,7 @@ public class JMapaUI extends JFrame implements ActionListener {
 		
 		//INCLUIR UM INPUT PARA BUSCAR AQUIVO NO EXPLORER
 		jPanelCenter.setLayout(new GridLayout(6, 2));
-		jPanelCenter.add(new JLabel("Informe o caminho do arquivo para avaliação:"));
+		jPanelCenter.add(new JLabel("Informe o caminho do arquivo para avaliaÃ§Ã£o:"));
 		this.txtEnviarArquivo = new JTextField(); 
 		jPanelCenter.add(this.txtEnviarArquivo);
 		
