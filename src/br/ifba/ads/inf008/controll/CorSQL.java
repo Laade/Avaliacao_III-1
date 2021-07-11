@@ -94,3 +94,18 @@ public class CorSQL implements CorDAOIF {
 		else
 			return -1;
 	}
+	
+	public Cor findByDescricao(String descricao)  {
+		//criar CONSULTAR_DESCRICAO
+	}
+	
+	public Cor findBySimbolo(String descricao)  {
+		//criar CONSULTAR_SIMBOLO
+	}
+	
+
+	@Override
+	public int pesquisarCor(Cor c) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
