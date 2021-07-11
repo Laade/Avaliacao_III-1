@@ -9,7 +9,7 @@ public interface CorDAOIF {
 	public void salvar(Cor c) throws Exception;
 	public void atualizar(Cor c) throws Exception;
 	public Collection<Cor> findBySimbolo(String s) throws Exception;
-	public Cor findByNome(String s) throws Exception;
+	public Cor findByDescricao(String s) throws Exception;
 	public Collection<Cor> findAll() throws Exception;
 
 
