@@ -8,7 +8,7 @@ import inf008.controll.CorDAOSQL;
 
 public class InserirCores {
     
-    public void populandoTabelaCores() throws Exception{
+    public void TabelaCores() throws Exception{
     	CorDAOSQL corDAO = new CorDAOSQL();
     	    	
 	    corDAO.salvar(new CorRGB("01", "AGUAS E CHARCOS","AZUL ESCURO", 0,0,139));
