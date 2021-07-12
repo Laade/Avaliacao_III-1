@@ -2,28 +2,28 @@ package inf008.model;
 
 public abstract class Cor {
     
-	protected String id;
-	protected String descricao;
-	protected String simbolo;
+	private String id;
+	private String descricao;
+	private Simbolo simbolo;
          
-    public Cor(String id, String descricao, String simbolo) {
+    public Cor(String id, String descricao, Simbolo simbolo) {
 		this.setId(id);
 		this.setDescricao(descricao);
 		this.setSimbolo(simbolo);
 	}
-    public Cor(int cyan, int magente, int yellow, int keyBlack) {
-	}
+
+	public abstract String getCodTipo();
+    public abstract int getLuminosidade();
+	// pesquisar sobre a diferencao entre public e abstract
+    protected abstract int validaCor(int valor);
     
-	public Cor(int red, int green, int blue) {
-		// TODO Auto-generated constructor stub
-	}
 	private void setId(String id) {
 		this.id = id;
 	}
 	private void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	private void setSimbolo(String simbolo) {
+	private void setSimbolo(Simbolo simbolo) {
 		this.simbolo = simbolo;
 	}
     public String getId() {
@@ -32,14 +32,7 @@ public abstract class Cor {
     public String getDescricao() {
 		return this.descricao;
 	}
-    public String getSimbolo() {
+    public Simbolo getSimbolo() {
 		return this.simbolo;
 	}
-
-	public abstract String getCodTipo();
-    
-    public abstract int getLuminosidade();
-    protected abstract int validaCor(int valor);
-    public abstract boolean isEqual(Cor cor);
-    
 }
