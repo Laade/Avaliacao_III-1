@@ -12,7 +12,7 @@ public class MapaConecta {
 	public static void main (String[] args) throws SQLException {
 		System.out.println("Iniciando...");
 		
-		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+//		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
 		System.out.println("Registrado...");
 		
 		Connection conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/", "SA", ""); 
