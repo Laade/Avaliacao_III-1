@@ -16,8 +16,15 @@ public abstract class Mapa {
     public abstract Cor getPixel(int altura, int largura);
 
     public Mapa(String id, String descricao) {
-        this.id = id;
-        this.descricao = descricao;
+        setId(id);
+        setDescricao(descricao);
+    }
+
+    private void setId(String id) {
+    	this.id = id;
+    }
+    private void setDescricao(String descricao) {
+    	this.descricao = descricao;
     }
     
     public String getId() {
@@ -25,12 +32,6 @@ public abstract class Mapa {
     }
     public String getDescricao() {
     	return this.descricao;
-    }
-    private void setId(String id) {
-    	this.id = id;
-    }
-    private void setDescricao(String descricao) {
-    	this.descricao = descricao;
     }
         
     public int getAltura(){
@@ -66,23 +67,19 @@ public abstract class Mapa {
 
     }
 
-    public double getPercentualEquivalente(Cor cor){
+    public double getPercentualEquivalentes(Cor cor){
 
-        int pixelsSimilares = 0;
-        int luminosidadeOutraCor = cor.getLuminosidade();
+        int pixelsEquivalentes = 0;
 
         for(int i = 0; i <= this.getAltura(); i++)
           for(int j = 0; j <= this.getLargura(); j++){
-                int luminosidade = this.getPixel(i, i).getLuminosidade();
-                if(luminosidade == luminosidadeOutraCor)
-                    pixelsSimilares ++;
+                if(this.getPixel(i, j).equals(cor))
+                pixelsEquivalentes ++;
           } 
         
-        return (double)pixelsSimilares / this.getArea() * 100;    
+        return (double) pixelsEquivalentes / this.getArea() * 100;    
 
-    }
-
-    
+    }   
 }
 
 
