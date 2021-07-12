@@ -15,7 +15,7 @@ public class CorCMYK extends Cor{
     
     // se construtor for vazio cria uma cor branca
     public CorCMYK() {
-    	this(null, "BRANCA", null, 0, 0, 0, 0);
+    	this(null, "PRETA", null, 0, 0, 0, 100);
     }
 
     public CorCMYK(String id, String descricao, Simbolo simbolo, int cyan, int magente, int yellow, int keyBlack) {

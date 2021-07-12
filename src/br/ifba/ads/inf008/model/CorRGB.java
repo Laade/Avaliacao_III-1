@@ -13,22 +13,21 @@ public class CorRGB extends Cor{
     private int blue;
 
     
-    public CorRGB(int red, int green, int blue) {
-    	super (red, green, blue);
-    }
-    // Quando a cor RGB � chamada sem par�metros ela retorna uma cor preta
+    // Quando a cor RGB e chamada sem parametros ela retorna uma cor preta
     public CorRGB(){
     	 this(null, "PRETA", null, 0,0,0);
     };
 
-     // Construtor de C�pia
-    public CorRGB(String id, String descricao, String simbolo,CorRGB cor) {
-        this(null, descricao, simbolo, cor.getRed(), cor.getGreen(), cor.getBlue());
+     public CorRGB (String id, String descricao, Simbolo simbolo , int red, int green, int blue){
+    	super (id, descricao, simbolo);
+        this.setRed(red);
+        this.setGreen(green);
+        this.setBlue(blue);
     }
 
     // Contrutor Cria Cor RGB
-    public CorRGB(String id, String descricao, String simbolo, int red, int green, int blue){
-    	super(id, descricao, simbolo);
+    public CorRGB(int red, int green, int blue){
+        super(null, null, null);
         this.setRed(red);
         this.setGreen(green);
         this.setBlue(blue);
@@ -46,15 +45,15 @@ public class CorRGB extends Cor{
         return this.blue;
     }
 
-    public void setRed(int red) {
+    private void setRed(int red) {
         this.red = this.validaCor(red);
     }
 
-    public void setGreen(int green) {
+    private void setGreen(int green) {
         this.green = this.validaCor(green);
     }
 
-    public void setBlue(int blue) {
+    private void setBlue(int blue) {
         this.blue = this.validaCor(blue);
     }
 
@@ -80,8 +79,7 @@ public class CorRGB extends Cor{
         return value <= 0 ? 0 : value;
     }
 
-     @Override
-    public boolean isEqual(Cor cor) {
+    public boolean equals(Cor cor) {
     	CorRGB rgb = (CorRGB) cor;
         return (this.getRed() == rgb.getRed()) && (this.getGreen() == rgb.getGreen()) && (this.getBlue() == rgb.getBlue());
     }
