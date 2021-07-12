@@ -82,10 +82,33 @@ public class CorCMYK extends Cor{
               return 100;
           }
           return cor; 
-    }
+    };
+    
+	@Override
+	public boolean equals(Object cor) {
+		if(cor instanceof CorRGB) {
+    		CorRGB corRgb = this.gerarCorRGB();
+    		return corRgb.equals(cor);
+    	}
+    	else if(cor instanceof CorCMYK) {
+    		return ((this.getCyan() ==((CorCMYK) cor).getCyan()) && (this.getMagente() == ((CorCMYK) cor).getMagente()) && (this.getYellow() == ((CorCMYK) cor).getYellow()) && (this.getkeyBlack() == ((CorCMYK) cor).getkeyBlack()));
+    	} else {
+    		return false;
+    	}
+	}
 
-    @Override
-    public String getCodTipo() {
+    public CorRGB gerarCorRGB(){
+        
+        CorRGB cor = new CorRGB(this.getId(),this.getDescricao(),this.getSimbolo(), 
+                                (int)(255 * (1 - ((double)this.getCyan()/100)) *  (1-((double)this.getkeyBlack()/100))), 
+                                (int)(255 * (1 - ((double)this.getMagente()/100)) *  (1-((double)this.getkeyBlack()/100))),
+                                (int)(255 * (1 - ((double)this.getYellow()/100)) *  (1-((double)this.getkeyBlack()/100)))
+                            );
+        return cor;
+    } 
+    
+	
+	public String getCodTipo(){
         return "C";
     };
      

@@ -1,6 +1,6 @@
 package inf008.model;
 
-public class CorRGB extends Cor{
+public class CorRGB extends Cor {
 
 	public static final CorRGB PRETA = new CorRGB(null, "PRETA", null, 0, 0, 0);
 	public static final CorRGB BRANCA = new CorRGB(null, "BRANCA", null, 255, 255, 255);
@@ -79,10 +79,16 @@ public class CorRGB extends Cor{
         return value <= 0 ? 0 : value;
     }
 
-    public boolean equals(Cor cor) {
-    	CorRGB rgb = (CorRGB) cor;
-        return (this.getRed() == rgb.getRed()) && (this.getGreen() == rgb.getGreen()) && (this.getBlue() == rgb.getBlue());
-    }
+    @Override
+	public boolean equals(Object cor) {
+		if (cor instanceof CorRGB) {
+			CorRGB rgb = (CorRGB) cor;
+			return (this.getRed() == rgb.getRed()) && (this.getGreen() == rgb.getGreen())
+					&& (this.getBlue() == rgb.getBlue());
+		} else {
+			return false;
+		}
+	}
 
     public String getcorHex(){
         String sRed = Integer.toHexString(this.getRed());

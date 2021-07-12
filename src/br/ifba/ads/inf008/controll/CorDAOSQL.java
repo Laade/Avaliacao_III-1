@@ -14,6 +14,7 @@ import java.util.Set;
 import inf008.model.Cor;
 import inf008.model.CorCMYK;
 import inf008.model.CorRGB;
+import inf008.model.Simbolo;
 import inf008.model.TipoCor;
 
 public class CorDAOSQL implements CorDAOIF {
@@ -59,14 +60,14 @@ public class CorDAOSQL implements CorDAOIF {
 		PreparedStatement pStmt = this.getConn().prepareStatement(COR_INSERT);
 		pStmt.setString(1, c.getId());
 		pStmt.setString(2, c.getDescricao());
-		pStmt.setString(3, c.getSimbolo());
+		pStmt.setInt(3, c.getSimbolo().getId());
 		this.setCoresTipo(pStmt, c);
 		pStmt.executeUpdate();
 	}
 
 	
 
-	// Existirão várias cores diferentes que irão possuir o mesmo símbolo
+	// Existirï¿½o vï¿½rias cores diferentes que irï¿½o possuir o mesmo sï¿½mbolo
 	@Override
 	public Collection<Cor> findBySimbolo(String simbolo) throws Exception {
 		Set<Cor> cores = new HashSet<Cor>();
@@ -109,7 +110,11 @@ public class CorDAOSQL implements CorDAOIF {
 
 		String id = rSet.getString("id");
 		String sDescricao = rSet.getString("descricao");
-		String simbolo = rSet.getString("simbolo");
+
+		SimboloDAOSQL sDAO = new SimboloDAOSQL();
+		int simbolo = rSet.getInt("simbolo");
+		Simbolo oSimbolo = sDAO.findById(simbolo);
+		
 		int tipoCor = rSet.getInt("tipo_cor");
 
 		if (tipoCor == TipoCor.CorRGB.value()) {
@@ -117,7 +122,7 @@ public class CorDAOSQL implements CorDAOIF {
 			int green = rSet.getInt("green");
 			int blue = rSet.getInt("blue");
 
-			return c = new CorRGB(id, sDescricao, simbolo, red, green, blue);
+			return c = new CorRGB(id, sDescricao, oSimbolo, red, green, blue);
 
 		} else if (tipoCor == TipoCor.CorCMYK.value()) {
 			int cyan = rSet.getInt("cyan");
@@ -125,7 +130,7 @@ public class CorDAOSQL implements CorDAOIF {
 			int yellow = rSet.getInt("yellow");
 			int key = rSet.getInt("key");
 
-			return c = new CorCMYK(id, sDescricao, simbolo, cyan, magente, yellow, key);
+			return c = new CorCMYK(id, sDescricao, oSimbolo, cyan, magente, yellow, key);
 		}
 
 		return c;

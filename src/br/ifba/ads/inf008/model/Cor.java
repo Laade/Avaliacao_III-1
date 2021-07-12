@@ -14,7 +14,6 @@ public abstract class Cor {
 
 	public abstract String getCodTipo();
     public abstract int getLuminosidade();
-	// pesquisar sobre a diferencao entre public e abstract
     protected abstract int validaCor(int valor);
     
 	private void setId(String id) {
@@ -35,4 +34,5 @@ public abstract class Cor {
     public Simbolo getSimbolo() {
 		return this.simbolo;
 	}
+    
 }

@@ -1,7 +1,9 @@
+import inf008.ui.JMapaUI;
+
 public class App {
     public void run() {
-        AppTest app = (new AppTest());
-        app.testMapa();
+        JMapaUI app = (new JMapaUI());
+        app.run();
     }
 
     public static void main(String[] args) {

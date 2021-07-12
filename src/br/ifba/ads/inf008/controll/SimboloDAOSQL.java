@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import inf008.model.Simbolo;
+import inf008.utils.Exception.SimboloInexistenteException;
 
 public class SimboloDAOSQL {
 	private static final String URI = "jdbc:hsqldb:hsql://127.0.0.1/";
@@ -15,9 +16,11 @@ public class SimboloDAOSQL {
 	private static final String PWD = "dexter";
 
 	private static final String SIMBOLO_SELECT_ALL = "SELECT * FROM SIMBOLO";
+	private static final String SIMBOLO_SELECT_BY_ID = "SELECT id, descricao FROM simbolo WHERE id = ?";
+
 	
 	public SimboloDAOSQL() throws SQLException {
-		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+		// DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
 	}
 
 	private Connection getConn() throws SQLException {
@@ -34,6 +37,22 @@ public class SimboloDAOSQL {
 			simbolos.add(setSimbolo(rSet));
 		}
 		return simbolos;
+	}
+
+	public Simbolo findById(int id) throws Exception {
+		
+		PreparedStatement pStmt = this.getConn().prepareStatement(SIMBOLO_SELECT_BY_ID);
+		pStmt.setInt(1, id);
+		ResultSet rSet = pStmt.executeQuery();
+		if(!rSet.next())
+			throw new SimboloInexistenteException(id);
+		
+		int sId = rSet.getInt("id");
+		String nome = rSet.getString("nome");
+
+		Simbolo s = new Simbolo(sId, nome);
+		
+		return s;
 	}
 	
 	private Simbolo setSimbolo(ResultSet rSet) throws Exception {

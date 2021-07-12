@@ -48,7 +48,7 @@ public class CorDAOFile implements CorDAOIF {
 		int count = 0;
 
 		for (Cor colors : this.cores) {
-			if (colors.isEqual(cor)) {
+			if (colors.equals(cor)) {
 				count++;
 			}
 		}
