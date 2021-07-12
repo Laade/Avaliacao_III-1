@@ -26,23 +26,6 @@ public class Sistema {
         // ps: acredito que ficaria agradável colocar o converter dentro da classe cor apropriada
 
         // Convertendo de arquivo para Mapa
-        Mapa mapa = (new MapaDAOFile()).ler(caminhoArquivo);
-
-        CorDAOSQL corDAO = new CorDAOSQL();
-        Collection<Cor> cores = corDAO.findBySimbolo(simbolo);
-        
-        if(mapa instanceof MapaRGB) {
-            while (cores.iterator().hasNext()){
-                Cor cor = cores.iterator().next();
-
-                mapa.getPercentualEquivalente(cor); 
-
-                
-
-            }
- 
-        }
-
         return null;
     }
 }
