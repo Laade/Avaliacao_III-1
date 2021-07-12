@@ -2,28 +2,32 @@ package inf008.model;
 
 public class CorCMYK extends Cor{
 
-	 public static final CorCMYK CIANO = new CorCMYK(null, "CIANO", null, 100,0,0,0);
-	    public static final CorCMYK MAGENTO = new CorCMYK(null, "MAGENTO", null, 0,100,0,0);
-	    public static final CorCMYK AMARELO = new CorCMYK(null, "AMARELO", null, 0,0,100,0);
-	    public static final CorCMYK PRETA = new CorCMYK(null, "PRETA", null, 0,0,0,100);
-	    public static final CorCMYK BRANCA = new CorCMYK(null, "BRANCA", "null", 0,0,0,0);
+    public static final CorCMYK CIANO = new CorCMYK(null, "CIANO", null, 100,0,0,0);
+    public static final CorCMYK MAGENTO = new CorCMYK(null, "MAGENTO", null, 0,100,0,0);
+    public static final CorCMYK AMARELO = new CorCMYK(null, "AMARELO", null, 0,0,100,0);
+    public static final CorCMYK PRETA = new CorCMYK(null, "PRETA", null, 0,0,0,100);
+    public static final CorCMYK BRANCA = new CorCMYK(null, "BRANCA", null, 0,0,0,0);
 
     private int cyan;
     private int magente;
     private int yellow;
     private int keyBlack;
+    
+    // se construtor for vazio cria uma cor branca
+    public CorCMYK() {
+    	this(null, "BRANCA", null, 0, 0, 0, 0);
+    }
 
+    public CorCMYK(String id, String descricao, Simbolo simbolo, int cyan, int magente, int yellow, int keyBlack) {
+        super(id, descricao, simbolo);
+    	this.setCyan(cyan);
+        this.setMagente(magente);
+        this.setYellow(yellow);
+        this.setkeyBlack(keyBlack);
+    }
 
     public CorCMYK(int cyan, int magente, int yellow, int keyBlack) {
-    	super(cyan, magente, yellow, keyBlack);
-    }
-    
-    public CorCMYK() {
-    	this(null, "PRETA", null, 0, 0, 0, 0);
-    }
-
-    public CorCMYK(String id, String descricao, String simbolo, int cyan, int magente, int yellow, int keyBlack) {
-        super(id, descricao, simbolo);
+        super(null, null, null);
     	this.setCyan(cyan);
         this.setMagente(magente);
         this.setYellow(yellow);
@@ -46,17 +50,17 @@ public class CorCMYK extends Cor{
         return this.keyBlack;
     }
 
-    public void setCyan(int cyan) {
+    private void setCyan(int cyan) {
         this.cyan = validaCor(cyan);
     }
 
-    public void setMagente(int magente) {
+    private void setMagente(int magente) {
         this.magente = validaCor(magente);
     }
-    public void setYellow(int yellow) {
+    private void setYellow(int yellow) {
         this.yellow = validaCor(yellow);
     }
-    public void setkeyBlack(int keyBlack) {
+    private void setkeyBlack(int keyBlack) {
         this.keyBlack = validaCor(keyBlack);
     }
 
@@ -78,14 +82,11 @@ public class CorCMYK extends Cor{
               return 100;
           }
           return cor; 
-    };
+    }
+
     @Override
-	public boolean isEqual(Cor cor) {
-		// TODO Auto-generated method stub
-		return false;
-	};
-	
-	public String getCodTipo(){
+    public String getCodTipo() {
         return "C";
-    }  
+    };
+     
 }
