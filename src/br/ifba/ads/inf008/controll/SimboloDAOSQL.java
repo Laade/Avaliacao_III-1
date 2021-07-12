@@ -18,7 +18,7 @@ public class SimboloDAOSQL {
 	private static final String SIMBOLO_SELECT_ALL = "SELECT * FROM SIMBOLO";
 	
 	public SimboloDAOSQL() throws SQLException {
-		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+		// DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
 	}
 
 	private Connection getConn() throws SQLException {
