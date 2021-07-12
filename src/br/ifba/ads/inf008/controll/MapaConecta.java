@@ -1,3 +1,5 @@
+package inf008.controll;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
