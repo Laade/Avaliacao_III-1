@@ -11,10 +11,17 @@ public interface CorDAOIF {
 	public Collection<Cor> findBySimbolo(String s) throws Exception;
 	public Cor findByDescricao(String s) throws Exception;
 	public Collection<Cor> findAll() throws Exception;
+	public Collection<String> findAllSimbolo() throws Exception;
 
 
 	// //public void salvar(Cor cor) throws Exception;
 	// public void adicionar(Cor c) throws Exception;
 	// public int pesquisarSimbolo(String simbolo) throws Exception;
+
+
+
+	
+	
+	
 
 }

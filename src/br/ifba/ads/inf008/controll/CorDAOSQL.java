@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -46,6 +45,9 @@ public class CorDAOSQL implements CorDAOIF {
 													" GREEN, BLUE, CYAN, MAGENTE, YELLOW,\r\n" + 
 													" KEY, TIPO_COR\r\n" + 
 													" FROM COR";
+
+	private static final String COR_SELECT_ALL_SIMBOLO = "SELECT SIMBOLO\r\n" + 
+															" FROM COR";
 
 
 	// public CorDAOSQL() throws SQLException {
@@ -94,6 +96,8 @@ public class CorDAOSQL implements CorDAOIF {
 		return cores;
 	}
 
+	
+
 	@Override
 	public Collection<Cor> findAll() throws Exception {
 		Set<Cor> cores = new HashSet<Cor>();
@@ -104,6 +108,19 @@ public class CorDAOSQL implements CorDAOIF {
 			cores.add(setCor(rSet));
 		}
 		return cores;
+	}
+
+	public Collection<String> findAllSimbolo() throws Exception {
+		Set<String> simbolos = new HashSet<String>();
+		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_ALL_SIMBOLO);
+		ResultSet rSet = pStmt.executeQuery();
+
+		while(rSet.next()) {
+			String simbolo = rSet.getString("simbolo");
+			simbolos.add(simbolo);
+		}
+
+		return simbolos;
 	}
 
 	private void preencheTodosOsCampos(PreparedStatement pStmt, Cor c) throws Exception {
@@ -166,4 +183,7 @@ public class CorDAOSQL implements CorDAOIF {
 
 		return c;
 	}
+
+
+	
 }

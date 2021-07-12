@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 
 import inf008.model.TipoCor;
 import inf008.model.Cor;
-import inf008.controll.CorDAOFile;
 
 public class JMapaUI extends JFrame implements ActionListener {
 
