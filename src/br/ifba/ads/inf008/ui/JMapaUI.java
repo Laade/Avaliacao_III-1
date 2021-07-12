@@ -1,82 +1,148 @@
-package inf008.ui;
+package JMapaUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
+import java.io.File;
+//import java.io.IOException;
+//import java.util.Collection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import inf008.model.TipoCor;
-import inf008.model.Cor;
+//import JMapaSistemaUI.JMapaSistemaUI;
 
-public class JMapaUI extends JFrame implements ActionListener {
+import javax.swing.JFileChooser;
 
+//import inf008.model.TipoCor;
+//import inf008.model.Cor;
+
+public class JMapaUI extends JFrame implements ActionListener{
+	
 	// private ContabilLogicaIF logica;
-	private Collection<String> nomeCores;
-
+	//private Collection<String> nomeCores;
+	
+	private static final long serialVersionUID = 1L;
 	private JButton btnAnalisarArquivo;
+	private JButton btnBuscarArquivo;
+	private JComboBox<String> cmbEnviarArquivo;	
 	private JTextField txtEnviarArquivo;
-	private JTextField txtSelecionarTipo;
-	private JComboBox<String> cmbEnviarArquivoo;
-	private JComboBox<String> cmbSelecionarTipo;
-	private JTextField txtValor;
-
-	public void JMapaUI() throws Exception {
-		// abrir pesquisa de cores?
+		
+	/*
+	public JavaUI() throws Exception {
+		
 	}
-
-	protected void montar() {
-		JPanel jPanelCenter = new JPanel();
-		jPanelCenter.setLayout(new GridLayout(3, 2));
-		jPanelCenter.add(new JPanel());
-		jPanelCenter.add(new JPanel());
-		this.btnAnalisarArquivo = new JButton("Analisar!"); 
-		this.btnAnalisarArquivo.addActionListener(this);
-		jPanelCenter.add(new JPanel());
-		jPanelCenter.add(new JPanel());
+	*/
+	
+	private void montar(){
+		// Botoes
+		this.btnAnalisarArquivo = new JButton("Pesquisar");
+		this.btnBuscarArquivo = new JButton("Verificar"); 
 		
-		//INCLUIR UM INPUT PARA BUSCAR AQUIVO NO EXPLORER
-		jPanelCenter.setLayout(new GridLayout(6, 2));
-		jPanelCenter.add(new JLabel("Informe o caminho do arquivo para avaliação:"));
+		// TextFilds
 		this.txtEnviarArquivo = new JTextField(); 
+		
+		this.cmbEnviarArquivo = new JComboBox<String>();
+		//this.loadCombo(this.cmbSimbolos); 
+		
+    }
+	
+protected void configLayout(){
+		
+		// Incluindo areas da tela
+		JPanel jPanelCenter = new JPanel();
+		JPanel jPanelSouth = new JPanel();
+		
+		
+		jPanelCenter.setLayout(new GridLayout(5, 2));
+		
+		// Montando espaçamento em cima
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		
+		// Inclusor do caminho da imagem
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JLabel("Informe o caminho do arquivo para analise:"));
 		jPanelCenter.add(this.txtEnviarArquivo);
+		jPanelCenter.add(btnAnalisarArquivo);
 		
-		//CHAMAR DO BANCO OS SIMBOLOS NO DROPDOWN
+		// Montando espaçamento meio
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		
+		
+		// Incluindo dropdown elementos
+		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JLabel("Selecione o tipo de elemento:"));
-		this.cmbSelecionarTipo = new JComboBox<String>();
+		this.cmbEnviarArquivo = new JComboBox<String>();
+		jPanelCenter.add(this.cmbEnviarArquivo);
+		jPanelCenter.add(new JPanel());
 		
+		// Montando espaçamento final
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		jPanelCenter.add(new JPanel());
+		
+		
+		//Montando o panel na area sul onde vai ancorar o botão
+		jPanelSouth.setLayout(new GridLayout(2, 2));
+		jPanelSouth.add(new JPanel());
+		jPanelSouth.add(new JPanel());
+		jPanelSouth.add(new JPanel());
+		jPanelSouth.add(new JPanel());
+		jPanelSouth.add(btnAnalisarArquivo);
+		jPanelSouth.add(new JPanel());
+		
+		// Setando layout
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().add(jPanelCenter, BorderLayout.CENTER);
-		//this.getContentPane().add(jPanelSouth, BorderLayout.SOUTH);
-		
-		this.setTitle("Adicionar Imagem");
-		this.setSize(800, 600);
+		this.getContentPane().add(jPanelSouth, BorderLayout.SOUTH);
+		this.setTitle("Verificar Mapa");
+		this.setSize(800, 600);	
+	}
+	//private void loadCombo(JComboBox combo) {
+	
+	//}
+	
+	protected void configEvents() {
+		this.btnAnalisarArquivo.addActionListener(this);
+		this.btnBuscarArquivo.addActionListener(this);
 	}
 
 	public void run() {
 		this.montar();
+        this.configEvents();
+        this.configLayout();
 		this.setVisible(true);
 	}
-	
-	private void loadCombo(JComboBox combo) {
-		/*
-		 * for(String nomeCor : this.nomeCor) combo.addItem(nomeCor);
-		 */
+public void actionPerformed(ActionEvent args0) {
+		
+		if( args0.getSource() == this.btnBuscarArquivo){
+			JFileChooser fileChooser = new JFileChooser();
+			fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+			int result = fileChooser.showOpenDialog(this);
+			if (result == JFileChooser.APPROVE_OPTION) {
+			    File selectedFile = fileChooser.getSelectedFile();
+			    this.txtEnviarArquivo.setText(selectedFile.getAbsolutePath());
+			}
+		}
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public static void main(String[] args) throws Exception {
 		(new JMapaUI()).run();  
 	}
