@@ -1,4 +1,4 @@
-package JMapaUI;
+package inf008.ui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -60,9 +60,9 @@ protected void configLayout(){
 		JPanel jPanelSouth = new JPanel();
 		
 		
-		jPanelCenter.setLayout(new GridLayout(5, 2));
+		jPanelCenter.setLayout(new GridLayout(7, 4));
 		
-		// Montando espa√ßamento em cima
+		// espaÁamento superior
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
@@ -72,9 +72,9 @@ protected void configLayout(){
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JLabel("Informe o caminho do arquivo para analise:"));
 		jPanelCenter.add(this.txtEnviarArquivo);
-		jPanelCenter.add(btnAnalisarArquivo);
+		jPanelCenter.add(btnBuscarArquivo);
 		
-		// Montando espa√ßamento meio
+		// espaÁamento central
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
@@ -88,7 +88,7 @@ protected void configLayout(){
 		jPanelCenter.add(this.cmbEnviarArquivo);
 		jPanelCenter.add(new JPanel());
 		
-		// Montando espa√ßamento final
+		// espaÁamento final
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JPanel());
@@ -99,7 +99,7 @@ protected void configLayout(){
 		jPanelCenter.add(new JPanel());
 		
 		
-		//Montando o panel na area sul onde vai ancorar o bot√£o
+		//Montando o panel na area sul onde vai ancorar o bot„o
 		jPanelSouth.setLayout(new GridLayout(2, 2));
 		jPanelSouth.add(new JPanel());
 		jPanelSouth.add(new JPanel());
