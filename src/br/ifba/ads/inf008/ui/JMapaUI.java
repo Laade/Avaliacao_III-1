@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 //import java.io.IOException;
 //import java.util.Collection;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +16,9 @@ import javax.swing.JLabel;
 //import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import inf008.controll.SimboloDAOSQL;
+import inf008.model.Simbolo;
 
 //import JMapaSistemaUI.JMapaSistemaUI;
 
@@ -85,6 +89,17 @@ protected void configLayout(){
 		jPanelCenter.add(new JPanel());
 		jPanelCenter.add(new JLabel("Selecione o tipo de elemento:"));
 		this.cmbEnviarArquivo = new JComboBox<String>();
+		try {
+			SimboloDAOSQL simboloDAO = new SimboloDAOSQL();
+			ArrayList<Simbolo> simbolos = simboloDAO.findAll();
+			
+			for (Simbolo simbolo : simbolos) {
+				cmbEnviarArquivo.addItem(simbolo.getDescricao());
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		jPanelCenter.add(this.cmbEnviarArquivo);
 		jPanelCenter.add(new JPanel());
 		
