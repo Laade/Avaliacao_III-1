@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -23,16 +22,17 @@ public class CorDAOSQL implements CorDAOIF {
 	private static final String PWD = "dexter";
 
 	private static final String COR_SELECT_ALL = "SELECT * FROM COR";
+
 	private static final String COR_INSERT = "INSERT INTO COR(ID, DESCRICAO, SIMBOLO, RED,\r\n" + 
 														" GREEN, BLUE, CYAN, MAGENTA, YELLOW,\r\n" + 
 														" KEYBLACK, TIPOCOR)\r\n" + 
 														" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 	private static final String COR_SELECT_BY_SIMBOLO = "SELECT ID, DESCRICAO, SIMBOLO, RED,\r\n" + 
 														" GREEN, BLUE, CYAN, MAGENTA, YELLOW,\r\n" + 
 														" KEYBLACK, TIPOCOR\r\n" + 
 														" FROM COR \r\n" +
 														" WHERE SIMBOLO = ? \r\n";
-
 
 	public CorDAOSQL() throws SQLException {
 //		DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
@@ -64,13 +64,11 @@ public class CorDAOSQL implements CorDAOIF {
 		pStmt.executeUpdate();
 	}
 
-	
-
-	// Existirão várias cores diferentes que irão possuir o mesmo símbolo
+	// Existirao varias cores diferentes que irao possuir o mesmo simbolo
 	@Override
 	public Collection<Cor> findBySimbolo(String simbolo) throws Exception {
 		Set<Cor> cores = new HashSet<Cor>();
-		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_ALL);
+		PreparedStatement pStmt = this.getConn().prepareStatement(COR_SELECT_BY_SIMBOLO);
 		pStmt.setString(1, simbolo);
 		ResultSet rSet = pStmt.executeQuery();
 
@@ -130,6 +128,4 @@ public class CorDAOSQL implements CorDAOIF {
 
 		return c;
 	}
-
-
 }
