@@ -42,20 +42,21 @@ public class CorDAOFile implements CorDAOIF {
 		out.close();
 	}
 
-	public int pesquisarCor(Cor cor) throws ClassNotFoundException, IOException {
-		this.cores = new ArrayList<Cor>();
-		this.readFileCor();
+	// Esse método passa a ser feito agora na classe mapa no método getPercentualEquivalente
+	// public int pesquisarCor(Cor cor) throws ClassNotFoundException, IOException {
+	// 	this.cores = new ArrayList<Cor>();
+	// 	this.readFileCor();
 
-		int count = 0;
+	// 	int count = 0;
 
-		for (Cor colors : this.cores) {
-			if (colors.isEqual(cor)) {
-				count++;
-			}
-		}
-		return (count / cores.size() * 100);
-		// retornando a porcentagem
-	}
+	// 	for (Cor colors : this.cores) {
+	// 		if (colors.isEqual(cor)) {
+	// 			count++;
+	// 		}
+	// 	}
+	// 	return (count / cores.size() * 100);
+	// 	// retornando a porcentagem
+	// }
 
 	public void salvar(Cor cor) throws IOException {
 		this.cores.add(cor);
@@ -68,7 +69,6 @@ public class CorDAOFile implements CorDAOIF {
 	
 	@Override
 	public Collection<Cor> findBySimbolo(String s) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
